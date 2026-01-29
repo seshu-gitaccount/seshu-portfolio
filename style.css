@@ -1,0 +1,816 @@
+/* ========================================
+   PERSONAL WEBSITE CSS — PHASE 4
+   Clean, modern, premium feel
+======================================== */
+
+/* ===== BODY & BACKGROUND ===== */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: url("images/home-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-color: #111;
+  text-align: center;
+  color: #eaeaea;
+  overflow-x: hidden;
+}
+
+/* ===== TEXT READABILITY ===== */
+h1, h2, p, li, a {
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.85);
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== HEADER ===== */
+header {
+  margin-bottom: 50px;
+}
+
+h1 {
+  font-size: 42px;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  color: #dddddd;
+  font-size: 16px;
+}
+
+/* ===== SECTIONS ===== */
+section {
+  max-width: 900px;
+  margin: 0 auto 60px auto;
+  text-align: center;
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: 600;
+  border-bottom: 2px solid #fff;
+  display: inline-block;
+  padding-bottom: 6px;
+  margin-bottom: 20px;
+}
+
+p, li {
+  color: #eaeaea;
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+li {
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+/* ===== LINKS ===== */
+a {
+  color: #9ecbff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  font-size: 14px;
+  color: #cccccc;
+  text-align: center;
+  width: 100%;
+  padding: 40px 0;   /* Adds breathing room around the copyright text */
+  position: relative; /* Sits naturally at the end of the content */
+  z-index: 100;
+  clear: both;       /* Ensures it stays below any floated elements */
+}
+
+/* FIX: Keep footer fixed ONLY on the Home Page splash screen */
+body.home footer {
+  position: fixed;
+  bottom: 20px;
+  padding: 0;
+}
+
+
+/* ===== LISTS ===== */
+ul {
+  list-style-position: inside;
+  padding: 0;
+}
+
+/* ===== TEXT BOXES ===== */
+.text-box {
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  padding: 30px 35px;
+  border-radius: 12px;
+  max-width: 750px;
+  margin: 25px auto 0 auto;
+  text-align: center;
+}
+/* ===== PROFILE IMAGE WRAPPING ===== */
+.profile-img {
+  /* CHANGE 1: Move image to the top right */
+  float: right;
+  
+  /* CHANGE 2: Define size (passport style) */
+  width: 150px;
+  height: auto;
+  border-radius: 8px; /* Optional: slightly rounded corners */
+  
+  /* CHANGE 3: Create the "L" shaped gap */
+  /* Margin-left creates the gap on the left of the photo */
+  /* Margin-bottom creates the gap below the photo */
+  margin-left: 25px;
+  margin-bottom: 20px;
+  
+  /* CHANGE 4: The 'Magic' property */
+  /* This ensures text flows exactly around the margin box of the image */
+  shape-outside: margin-box;
+  
+  /* Optional: adds a slight glow to match your premium theme */
+  box-shadow: 0 0 15px rgba(158, 203, 255, 0.3);
+}
+
+/* Ensure the text-box handles the floated image correctly */
+.text-box {
+  overflow: hidden; /* Clears the float so the box wraps around the image */
+  text-align: justify; /* Makes the wrapping look much cleaner */
+}
+
+
+/* ===== PROJECT CARDS ===== */
+.project-card {
+  margin-bottom: 30px;
+}
+
+/* ===== HIDDEN ELEMENTS ===== */
+.hidden {
+  display: none;
+}
+
+/* ===== HOME MENU ===== */
+/* Update this section in your CSS */
+.home-menu {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%); /* Keep this baseline */
+  height: 100vh;
+  display: flex;
+  flex direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  cursor: pointer;
+  z-index: 900;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease;
+}
+
+/* FIX: Ensure it slides relative to its centered position */
+.home-menu.slide-left {
+  transform: translateX(-200%) scale(0.8); 
+  opacity: 0;
+  pointer-events: none; /* Prevents clicking it when hidden */
+}
+
+/* ADD THIS: Smooth transition for the content container */
+.content {
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.content.hidden {
+  display: none;
+  opacity: 0;
+}
+
+/* Individual home menu items hover */
+.home-menu div {
+  white-space: nowrap;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.home-menu div:hover {
+  transform: translateY(-4px);
+  opacity: 0.85;
+}
+
+/* ===== SCROLL TO TOP BUTTON ===== */
+/* Update this section in your style.css */
+.back-to-top {
+  position: fixed;
+  bottom: 40px;
+  left: 90px;        /* Positioning it between rail (30px) and text-box */
+  z-index: 2000;     /* Higher than the rail and home button */
+  opacity: 0;
+  visibility: hidden;
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;       /* Slightly larger for visibility */
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+.back-to-top:hover {
+  background-color: #c9302c;
+  transform: scale(1.1);
+}
+
+/* Ensure the SVG inside is white */
+.scroll-top-svg {
+  width: 30px;
+  height: 30px;
+  stroke: white;
+}
+
+
+/* ===== ICON RAIL ===== */
+.icon-rail {
+  position: fixed;
+  left: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  display: none; /* show with JS */
+  z-index: 1000;
+}
+
+.icon {
+  font-size: 22px;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* SVG Icons on Rail (stroke only) */
+.icon svg, .rail-svg {
+  width: 24px;
+  height: 24px;
+  stroke: white;
+  fill: none; /* prevents fat/filled look */
+  transition: transform 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
+}
+
+.icon:hover svg, .icon:hover .rail-svg {
+  transform: scale(1.15);
+  opacity: 0.9;
+  filter: drop-shadow(0 0 6px #9ecbff);
+}
+
+.icon.active svg,
+.icon.active .rail-svg {
+  transform: scale(1.2);
+  opacity: 1;
+  filter: drop-shadow(0 0 8px #ffdd55);
+}
+
+/* ===== HOME BUTTON ===== */
+.home-btn {
+  position: fixed;
+  top: 20px;
+  right: 25px;
+  font-size: 22px;
+  cursor: pointer;
+  color: #fff;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.85);
+  z-index: 1000;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.home-btn:hover {
+  transform: scale(1.15);
+  opacity: 0.85;
+}
+
+.home-btn svg, .home-svg {
+  width: 24px;
+  height: 24px;
+  stroke: white;
+  fill: none; /* prevents filled look */
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+/* Hide home button on home page */
+body.home .home-btn {
+  display: none;
+}
+
+/* Fake Light Theme Button */
+.theme-btn {
+  position: fixed;
+  top: 20px;              /* SAME vertical level as home button */
+  right: 70px;             /* pushes it right next to home */
+  
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  color: #ffffff;
+  opacity: 0.85;
+
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  z-index: 1001;
+}
+
+.theme-btn:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+/* ===== CONTENT & SECTIONS ===== */
+.content {
+  padding-top: 120px;
+  display: block;
+}
+
+.section {
+  display: none;
+}
+
+.section.fade-out {
+  animation: fadeSlideOut 0.4s ease forwards;
+}
+
+.section h2 {
+  opacity: 0;
+  transform: translateY(14px);
+  animation: headerIn 0.5s ease forwards;
+}
+
+.section .text-box {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: textIn 0.5s ease forwards;
+  animation-delay: 0.15s;
+}
+
+/* ===== KEYFRAMES ===== */
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeSlideOut {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(20px); }
+}
+
+@keyframes headerIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes textIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== BODY STATE ===== */
+body.home {
+  overflow: hidden;
+}
+
+/* ===== RESUME SECTION ===== */
+.resume-preview {
+  background: rgba(0, 0, 0, 0.55);
+  padding: 40px;
+  color: lightcoral;
+  font-family: Arial, sans-serif;
+  border: 1px solid #ddd;
+  line-height: 1.6;
+}
+
+.resume-header {
+  text-align: center;
+  border-bottom: 2px solid #333;
+  margin-bottom: 20px;
+}
+
+.resume-block h3 {
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  border-bottom: 1px solid #eee;
+  margin-top: 20px;
+  color: white;
+}
+
+.resume-item {
+  margin-bottom: 15px;
+}
+
+.date {
+  float: right;
+  font-weight: bold;
+  color: #666;
+}
+
+.pdf-link {
+  display: inline-block;
+  padding: 8px 15px;
+  background: #d9534f;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+/* Clearfix for the floating dates */
+.resume-item::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+/* ===== SKILLS SECTION ===== */
+/* ===== Skills Section – Left aligned & clearer hierarchy ===== */
+
+/* Ensure entire skills section is left aligned */
+.text-box {
+  text-align: left;
+}
+
+/* Section subheading (Course Skills) */
+.text-box h3 {
+  margin-bottom: 1.4rem;
+  font-size: 1.15rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #8fd3ff;
+}
+
+/* Skill category container */
+.skill-category {
+  margin-bottom: 2rem;
+  padding-left: 1rem;
+  border-left: 3px solid rgba(143, 211, 255, 0.4);
+}
+
+/* CATEGORY TITLES – THIS IS THE KEY FIX */
+.skill-category > strong {
+  display: block;
+  margin-bottom: 0.7rem;
+  font-size: 1.1rem;        /* Bigger */
+  font-weight: 600;
+  color: #ffd479;           /* Different color */
+  letter-spacing: 0.03em;
+}
+
+/* Bullet list reset */
+.skills-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Bullet items */
+.skills-list li {
+  position: relative;
+  padding-left: 1.4rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.55;
+  color: #d6d6d6;
+}
+
+/* Custom bullet dot */
+.skills-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0.4em;
+  color: #8fd3ff;
+  font-size: 1rem;
+}
+
+/* Emphasis inside bullet points */
+.skills-list li strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* ===== PROJECTS SECTION ===== */
+.projects-box {
+  text-align: left;
+}
+
+.project-group-title {
+  font-size: 20px;
+  color: #9ecbff;
+  margin: 30px 0 15px;
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+  padding-bottom: 6px;
+}
+
+.project-card {
+  margin-bottom: 25px;
+}
+
+.project-card h4 {
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+.project-meta {
+  font-size: 13px;
+  color: #ea970ae9;
+  margin-bottom: 10px;
+}
+
+.project-card p {
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+
+.project-card a {
+  font-size: 14px;
+  color: #9ecbff;
+}
+
+
+/* ===== CONTACT HOVER INTERACTIONS ===== */
+.contact-list li {
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.contact-list li:hover {
+  transform: translateX(4px);
+}
+
+.contact-list li:hover a {
+  color: #ffffff;
+  text-shadow: 0 0 8px rgba(158, 203, 255, 0.6);
+}
+
+.contact-list li:hover .contact-icon {
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 6px #9ecbff);
+}
+
+.contact-icon {
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+/* Center email row to match other contact links */
+.copy-item {
+  justify-content: center;
+}
+
+
+/* ===== COPY-TO-CLIPBOARD CONTACT ===== */
+.copy-item {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.copy-item:hover {
+  transform: translateX(4px);
+  opacity: 0.85;
+}
+
+.copy-text {
+  color: #9ecbff;
+  text-decoration: underline;
+}
+
+/* Toast popup */
+.copy-toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 20px;
+  font-size: 14px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 2000;
+}
+
+.copy-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-8px);
+}
+
+
+/*==================================================================================================================================*/
+
+/* ===== MOBILE OPTIMIZATION (Screens 768px and below) ===== */
+@media screen and (max-width: 768px) {
+  
+  /* 1. Background Image - Optimize for vertical screens */
+  body {
+    background-attachment: scroll; /* Smoother for mobile */
+    background-position: center center;
+    
+    /* ADD THESE TWO LINES TO FIX THE REPEATING */
+    background-repeat: no-repeat;
+    background-size: cover; 
+    
+    /* Ensures the background covers the full height of the content */
+    min-height: 100vh; 
+  }
+
+  /* 2. Horizontal BOTTOM Icon Rail - Ease of thumb access */
+  .icon-rail {
+    left: 0;
+    top: auto;         /* Remove top position */
+    bottom: 0;        /* Stick to bottom */
+    width: 100%;
+    /* Extra height to account for mobile swipe bars */
+    height: calc(65px + env(safe-area-inset-bottom)); 
+    flex-direction: row; 
+    justify-content: space-around;
+    align-items: center;
+    transform: none;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 0;
+    padding-bottom: env(safe-area-inset-bottom); /* Safe area for iPhones */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: none;
+  }
+
+  /* 3. Vertical Home Menu */
+  .home-menu {
+    flex-direction: column; 
+    gap: 30px;
+    font-size: 18px;
+    width: 100%;
+  }
+
+  /* 4. Content Area Tweaks */
+  .content {
+    padding-top: 60px;    /* Space for top home button */
+    padding-bottom: 100px; /* Space at bottom so text isn't hidden by the rail */
+    width: 95%;
+  }
+
+  .text-box {
+    padding: 20px;
+    margin: 15px auto;
+    width: 90%;
+  }
+
+  /* 5. Profile Image - Remove float for mobile */
+  .profile-img {
+    float: none;
+    display: block;
+    margin: 0 auto 20px auto;
+    width: 120px;
+    shape-outside: none;
+  }
+
+  /* 6. Strategic MOBILE Button Placement */
+  .home-btn {
+    top: 15px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 8px;
+    border-radius: 50%;
+  }
+
+  .back-to-top {
+    left: auto;      
+    right: 20px;     
+    /* Positioned right above the bottom icon rail */
+    bottom: calc(80px + env(safe-area-inset-bottom)); 
+    width: 50px;
+    height: 50px;
+    z-index: 2000;
+  }
+
+  /* 7. Resume Table/Grid Fix */
+
+  /* FIX: Shrink the Name in the Resume Section */
+  .resume-header h1 {
+    font-size: 8vw;         /* Much smaller for mobile *//* This means '8% of the screen width' */
+    line-height: 1.2;        /* Tighter spacing between lines */
+    word-wrap: break-word;   /* Ensures long names don't spill out */
+    overflow-wrap: break-word;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .resume-preview {
+    padding: 20px;
+  }
+
+  .date {
+    float: none;
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.85rem;
+  }
+}
+
+/* ===== FAKE LIGHT THEME BUTTON ===== */
+.theme-btn {
+  position: fixed;
+  top: 20px;
+  right: 70px;   /* ← sits just RIGHT of the Home button */
+  
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  color: #ffffff;
+  opacity: 0.85;
+
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  z-index: 1001;
+}
+
+.theme-btn:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+.theme-svg {
+  width: 24px;
+  height: 24px;
+  stroke: white;
+  fill: none;
+  filter: drop-shadow(0 0 6px rgba(158, 203, 255, 0.6));
+}
+
+/* Hide on home screen */
+body.home .theme-btn {
+  display: none;
+}
+
+/* ===== JOKE SPEECH BUBBLE ===== */
+.theme-joke {
+  position: fixed;
+  top: 65px;
+  right: 70px;   /* aligns under theme button */
+  
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 1.4;
+  max-width: 220px;
+  text-align: left;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+
+  opacity: 0;
+  transform: translateY(-5px);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
+}
+
+.theme-joke.show {
+  opacity: 1;
+  transform: translateY(0);
+}

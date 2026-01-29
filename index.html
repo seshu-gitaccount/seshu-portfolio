@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Seshasayee Rao.T.N | Professional Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="home">
+
+<!-- HOME BUTTON -->
+<div class="home-btn" onclick="goHome()">
+  <svg class="home-svg" xmlns="http://www.w3.org/2000/svg"
+       viewBox="0 0 24 24" fill="none" stroke="currentColor"
+       stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/>
+    <path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+  </svg>
+</div>
+
+<!-- FAKE LIGHT THEME BUTTON -->
+<div class="theme-btn" title="Change to light theme">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun-medium-icon lucide-sun-medium"><circle cx="12" cy="12" r="4"/><path d="M12 3v1"/><path d="M12 20v1"/><path d="M3 12h1"/><path d="M20 12h1"/><path d="m18.364 5.636-.707.707"/><path d="m6.343 17.657-.707.707"/><path d="m5.636 5.636.707.707"/><path d="m17.657 17.657.707.707"/></svg>
+</div>
+
+<!-- THE JOKE BUBBLE -->
+<div class="theme-joke" id="themeJoke">
+  Just kidding 😄 <br>
+  Light theme is a bit harsh on your eyes.
+</div>
+
+<!-- LEFT ICON RAIL -->
+<nav class="icon-rail hidden">
+  <div class="icon" onclick="showSection('about')" data-section="about" title="About Me">
+    <svg class="rail-svg" xmlns="http://www.w3.org/2000/svg"
+         viewBox="0 0 24 24" fill="none" stroke="currentColor"
+         stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 20a6 6 0 0 0-12 0"/>
+      <circle cx="12" cy="10" r="4"/>
+      <circle cx="12" cy="12" r="10"/>
+    </svg>
+  </div>
+<div class="icon" onclick="showSection('skills')" data-section="Course Skills" title="Skills & Certifications">
+  <svg class="rail-svg" xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 18V5"/>
+    <path d="M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4"/>
+    <path d="M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5"/>
+    <path d="M17.997 5.125a4 4 0 0 1 2.526 5.77"/>
+    <path d="M18 18a4 4 0 0 0 2-7.464"/>
+    <path d="M19.967 17.483A4 4 0 1 1 12 18a4 4 0 1 1-7.967-.517"/>
+    <path d="M6 18a4 4 0 0 1-2-7.464"/>
+    <path d="M6.003 5.125a4 4 0 0 0-2.526 5.77"/>
+  </svg>
+</div>
+
+  <div class="icon" onclick="showSection('projects')" data-section="projects" title="Projects">
+    <svg class="rail-svg" xmlns="http://www.w3.org/2000/svg"
+         viewBox="0 0 24 24" fill="none" stroke="currentColor"
+         stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/>
+    </svg>
+  </div>
+  <div class="icon" onclick="showSection('resume')" data-section="resume" title="Resume">
+    <svg class="rail-svg" xmlns="http://www.w3.org/2000/svg"
+         viewBox="0 0 24 24" fill="none" stroke="currentColor"
+         stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/>
+      <path d="M14 2v5a1 1 0 0 0 1 1h5"/>
+      <circle cx="12" cy="15" r="3"/>
+    </svg>
+  </div>
+  <div class="icon" onclick="showSection('contact')" data-section="contact" title="Contact">
+    <svg class="rail-svg" xmlns="http://www.w3.org/2000/svg"
+         viewBox="0 0 24 24" fill="none" stroke="currentColor"
+         stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/>
+      <rect x="2" y="4" width="20" height="16" rx="2"/>
+    </svg>
+  </div>
+</nav>
+
+<!-- HOME MENU -->
+<div class="home-menu">
+  <div onclick="showSection('about')">ABOUT ME</div>
+  <div onclick="showSection('skills')">COURSE SKILLS</div>
+  <div onclick="showSection('projects')">PROJECTS</div>
+  <div onclick="showSection('resume')">RESUME</div>
+  <div onclick="showSection('contact')">CONTACT</div>
+</div>
+
+<!-- CONTENT AREA -->
+<main class="content hidden">
+
+  <!-- ===== ABOUT ME SECTION ===== -->
+<section id="about" class="section">
+  <h2>About Me</h2>
+  <div class="text-box">
+    <img src="images/passport.jpg" alt="Seshu" class="profile-img">
+    
+    <p>
+      I am an MBA student currently attending Amrita School of Business, who looks at business through both a technical and analytical standpoint. My journey began with a B.Sc. in Computer Science, in which I gained a deep appreciation for logic and database management.
+    <p>
+      After a medical sabbatical, which necessitated a temporary pause in my conventional studies, I utilized that recovery period to realign my career goals along with my passion for data-driven strategy. I proactively enrolled in and completed a Post Graduate Certificate in Business Analytics (PGCBA)in the specialization of marketing from Symbiosis, graduating with an A Grade (First Class). This period of self-study solidified my transition into the MBA space, where presently I major in Marketing with a minor in Analytics.
+Today, I combine my technical full-stack foundation with advanced marketing frameworks like STP analysis and strategic Market Basket Analysis to solve complex business problems. Currently, I am involved in a two-year-long research initiative on Brand Redesign and Personalization, with the goal of closing the gap between aesthetic appeal and analytical precision.
+     <p>
+       My Design & Analytical Philosophy
+       <p>
+•The Technical Core: A background in Computer Science ensures I build on a foundation of clean logic and structured data.
+<p>
+• The Creative Eye: As a sketch artist, I bring a natural intuition for color theory and visual hierarchy. For marketing, that means I don't just analyze the data; I know how to present the information in an "appeasing" visual way that is psychologically impactful for the consumer.
+<p>
+• The Analytical Bridge: Through the use of tools like R and Python, I translate raw consumer behavior into visual strategies that drive brand performance.
+
+    </p>
+  </div>
+</section>
+
+<!-- ===== SKILLS SECTION ===== -->
+<section id="skills" class="section">
+ <h2>Skills</h2>
+
+<div class="text-box">
+
+  <h3>Course Skills</h3>
+
+  <div class="skill-category">
+    <strong>Analytics & Data Science</strong>
+    <ul class="skills-list">
+      <li><strong>Data Analysis:</strong> Market Basket Analysis, ESG Performance Regression, and Customer Preference Studies using RStudio.</li>
+      <li><strong>Tools:</strong> R Programming, Python (Foundational), Jupyter, and Data Visualization.</li>
+      <li><strong>Methodologies:</strong> Predictive Modeling, Data Interpretation, and Visualization.</li>
+    </ul>
+  </div>
+
+  <div class="skill-category">
+    <strong>Marketing & Strategy</strong>
+    <ul class="skills-list">
+      <li><strong>Brand Strategy:</strong> Segmenting, Targeting, and Positioning (STP) Analysis.</li>
+      <li><strong>Research:</strong> Market Research focusing on Brand Redesign, Personalization, and Consumer Behavior.</li>
+      <li><strong>Retail Analytics:</strong> Application of analytical tools to retail business concepts.</li>
+    </ul>
+  </div>
+
+  <div class="skill-category">
+    <strong>Technical & Soft Skills</strong>
+    <ul class="skills-list">
+      <li><strong>Development:</strong> ASP.NET, SQL Server, PostgreSQL, and C#.</li>
+      <li><strong>Core Strengths:</strong> Analytical Thinking, Research Orientation, Adaptability, and Team Collaboration.</li>
+      <li><strong>Languages:</strong> English, Tamil, and German (Entry level).</li>
+    </ul>
+  </div>
+
+  <!-- ===== CERTIFICATIONS ===== -->
+<div class="skill-category certifications">
+  <strong class="cert-title">Certifications & Formal Training</strong>
+
+  <p class="cert-intro">
+    Selected certifications that reinforce my technical, analytical, and business skill set.
+  </p>
+
+  <ul class="skills-list cert-list">
+    
+    <li>
+      <strong>Microsoft Specialist Certification</strong> — Microsoft  
+      <a href="certificates/T.N.Sesahsayee Rao - Microsoft Specialist.pdf" target="_blank">
+        (View Certificate)
+      </a>
+    </li>
+
+    <li>
+      <strong>RDBMS PostgreSQL Training</strong> — Spoken Tutorial Project, IIT Bombay  
+      <a href="certificates/SESHASAYEE-RAO-T.N-RDBMS PostgreSQL Training.pdf" target="_blank">
+        (View Certificate)
+      </a>
+    </li>
+
+    <li>
+      <strong>Completion of R Training</strong> — spoken Tutorial at IIT Bombay 
+      <a href="certificates/SESHASAYEE-RAO-T.N-R Training.pdf" target="_blank">
+        (View Certificate)
+      </a>
+    </li>
+
+    <li>
+      <strong>Completion of PHP and MySQL Training</strong> — spoken Tutorial at IIT Bombay 
+      <a href="certificates/SESHASAYEE-RAO-T.N-PHP and MySQL Training.pdf" target="_blank">
+        (View Certificate)
+      </a>
+    </li>
+
+    <li>
+      <strong>Completion of Cpp Training</strong> — spoken Tutorial at IIT Bombay
+      <a href="certificates/SESHASAYEE-RAO-T.N-Cpp Training-Certificate.pdf" target="_blank">
+        (View Certificate)
+      </a>
+    </li>    
+
+
+    <li>
+      <strong>Oracle Java SE8 Programming</strong> — spoken Tutorial at IIT Bombay 
+      <a href="certificates/ORACLE_CERTIFICATE.pdf" target="_blank">
+        (View Certificate)
+      </a>
+    </li>    
+
+    <li>
+      <strong>NPTEL Soft Skills Certification</strong> — IIT Kharagpur  
+      <a href="certificates/NPTEL_CERTIFICATE.pdf" target="_blank">
+        (View Certificate)
+      </a>
+    </li>
+    
+  </ul>
+</div>
+
+
+</div>
+</section>
+
+<!-- ===== PROJECTS SECTION ===== -->
+
+ <section id="projects" class="section">
+  <h2>Projects</h2>
+
+  <div class="text-box projects-box">
+
+    <!-- ===== MAJOR PROJECTS ===== -->
+    <h3 class="project-group-title">Major Academic Projects</h3>
+
+    <div class="project-card">
+      <h4>PGCBA Final Project – Business Analytics</h4>
+      <p class="project-meta">Post Graduate Certificate in Business Analytics</p>
+      <p>
+        A comprehensive analytics-driven project involving business problem formulation,
+        data preparation, statistical analysis, and insight generation to support
+        managerial decision-making.
+      </p>
+      <p>
+        The project emphasized applying analytical techniques to real-world business
+        scenarios, translating data findings into actionable business insights.
+      </p>
+      <a href="projects/Seshasayee Rao.T.N - PGCBA PROJECT.pdf" target="_blank">
+        View Report (PDF)
+      </a>
+    </div>
+
+    <div class="project-card">
+      <h4>UG Final Project – Web Services Platform</h4>
+      <p class="project-meta">Undergraduate Computer Science Project</p>
+      <p>
+        Designed and developed a web-based system focused on service integration
+        and backend functionality, emphasizing structured development and
+        system-level thinking.
+      </p>
+      <p>
+        This project strengthened my foundation in application logic,
+        database interaction, and end-to-end system design.
+      </p>
+      <a href="projects/Seshasayee Rao.T.N- UG PROJECT.pdf" target="_blank">
+        View Report (PDF)
+      </a>
+    </div>
+
+    <!-- ===== ANALYTICS & MARKETING PROJECTS ===== -->
+    <h3 class="project-group-title">Applied Analytics & Marketing Projects</h3>
+
+    <div class="project-card">
+      <h4>ESG Performance Regression Analysis</h4>
+      <p class="project-meta">Independent Analytical Project</p>
+      <p>
+        Conducted an in-depth regression analysis to study the relationship
+        between ESG performance indicators and financial variables.
+      </p>
+      <p>
+        <strong>Key contribution:</strong> Complete responsibility for data collection,
+        cleaning, and preparation — including sourcing ESG datasets,
+        aligning variables, and ensuring data integrity prior to analysis.
+      </p>
+      <a href="projects/Amrita Projects/CB.BU.P2ASB25158_SESHASAYEE RAO.T.N_IBA_ESG Regression.pdf" target="_blank">
+        View Report (PDF)
+      </a>
+    </div>
+
+    <div class="project-card">
+      <h4>Market Basket Analysis</h4>
+      <p class="project-meta">Customer Behavior Analytics</p>
+      <p>
+        Applied market basket analysis techniques to identify purchasing patterns
+        and product associations using transactional data.
+      </p>
+      <p>
+        The project focused on uncovering cross-selling opportunities and
+        translating analytical results into retail strategy insights.
+      </p>
+      <a href="projects/Amrita Projects/Market Basket Analysis - Seshasayee Rao.T.N.-25158.pdf" target="_blank">
+        View Report (PDF)
+      </a>
+    </div>
+
+    <div class="project-card">
+      <h4>Customer Segmentation Study</h4>
+      <p class="project-meta">Marketing & Analytics Assignment</p>
+      <p>
+        Performed customer segmentation using analytical techniques to
+        group customers based on behavioral and demographic characteristics.
+      </p>
+      <p>
+        Insights were framed from a marketing perspective, supporting
+        targeting and personalization strategies.
+      </p>
+      <a href="projects/Amrita Projects/Seshasayee Rao.T.N (25158) Customer Segmentation.pdf" target="_blank">
+        View Report (PDF)
+      </a>
+    </div>
+
+    <!-- ===== PERSONAL / MINI PROJECT ===== -->
+    <h3 class="project-group-title">Personal Project</h3>
+
+    <div class="project-card">
+      <h4>Personal Portfolio Website</h4>
+      <p class="project-meta">HTML • CSS • JavaScript</p>
+      <p>
+        Designed and developed this portfolio website from scratch using
+        semantic HTML, modern CSS, and vanilla JavaScript, with a strong focus
+        on layout structure, visual hierarchy, and usability.
+      </p>
+      <p>
+        The project includes custom SVG icon integration, interactive UI
+        behaviors such as hover states and a scroll-to-top and home button mechanism, and
+        responsive design optimizations for mobile devices. Emphasis was placed
+        on clean code organization, separation of concerns, and maintainable
+        front-end logic without relying on external frameworks.
+      </p>
+    </div>
+
+
+  </div>
+</section>
+
+<!-- ===== RESUME SECTION  ===== -->
+
+<section id="resume" class="section">
+    <h2>Resume</h2>
+    <div class="text-box">
+
+  <!-- Resume PDF Link -->
+  <div class="resume-link-container">
+    <p>You can view and download the full resume here:
+    <a href="resume.pdf" target="_blank" rel="noopener" class="pdf-link">
+      <i class="fas fa-file-pdf"></i> resume.pdf
+    </a>
+  </div>
+  <!-- Resume Preview -->
+ <div class="resume-preview">
+  <header class="resume-header">
+    <h1>SESHASAYEE RAO.T.N</h1>
+    <p>
+      +91 8883538999 | seshusai2002@gmail.com | 
+      <a href="https://www.linkedin.com/in/seshasayee-rao-t-n" target="_blank">LinkedIn: Seshasayee Rao.T.N</a>
+    </p>
+  </header>
+
+  <section class="resume-block">
+    <h3>OBJECTIVE</h3>
+    <p>
+      Motivated MBA student with a foundation in Computer Science, seeking a marketing and business analytics internship to apply analytical thinking and creativity in strategic decision-making. 
+      Eager to contribute to data-driven insights that enhance brand performance while gaining hands-on experience in modern analytical tools and methodologies.
+    </p>
+  </section>
+
+  <section class="resume-block">
+    <h3>EDUCATION</h3>
+    
+    <div class="resume-item">
+      <strong>Master of Business Administration (MBA)</strong><br>
+      Amrita School of Business, Amrita Vishwa Vidyapeetham, Coimbatore
+      <span>(2025-2027)</span>
+      <ul>
+        <li>Pursuing a General Management program with Marketing as major and Analytics as minor.</li>
+        <li>Conducted multiple data-driven projects including ESG Regression, Market Basket Analysis, and Customer Preference Studies using RStudio.</li>
+        <li>Actively engaged in Market Research projects focusing on Brand Redesigns and Personalization.</li>
+      </ul>
+    </div>
+
+    <div class="resume-item">
+      <strong>Post Graduate Certificate in Business Analytics (PGCBA)</strong><br>
+      Symbiosis Centre for Distance Learning
+      <span>(2023-2025)</span>
+      <ul>
+        <li>Focused on Business Analytics, Retail Analytics, and Business Concepts.</li>
+        <li>Hands-on learning with R for Business Analytics and data-driven decision-making.</li>
+        <li>Gaining analytical exposure to data interpretation, visualization, and predictive modeling.</li>
+      </ul>
+    </div>
+
+    <div class="resume-item">
+      <strong>Bachelor of Science in Computer Science</strong><br>
+      Sri Krishna Arts And Science College, Coimbatore
+      <span>(2020-2023)</span>
+      <p>CGPA: 7.9/10</p>
+    </div>
+  </section>
+
+  <section class="resume-block">
+    <h3>ACADEMIC PROJECTS</h3>
+    <div class="resume-item">
+      <strong>Segmenting, Targeting and Positioning Nivea Sun Brand</strong> (2025)<br>
+      <em>Amrita School of Business</em>
+      <p>Analyzed how NIVEA Sun applies STP to strengthen its market presence, focusing on demographic and attitudinal segmentation. Gained practical understanding of consumer behavior and strategic positioning.</p>
+    </div>
+    <div class="resume-item">
+      <strong>Care Taker Management System</strong> (2023)<br>
+      <em>Sri Krishna Arts And Science College</em>
+      <p>Developed a secure web platform using ASP.NET and SQL Server to connect clients with verified caretaker agencies. Strengthened skills in full-stack development and database design.</p>
+    </div>
+  </section>
+
+  <section class="resume-block">
+    <h3>SKILLS</h3>
+    <p><strong>Soft Skills:</strong> Analytical Thinking, Creativity, Communication, Team Collaboration, Adaptability, Time Management, Research Orientation.</p>
+    <p><strong>Software & Tools:</strong> R Programming, Data Visualization, Jupyter, Python, C#.</p>
+    <p><strong>Technical Skills:</strong> Customer segmentation, ESG Performance, Market Basket Analysis.</p>
+  </section>
+
+  <section class="resume-block">
+    <h3>CERTIFICATIONS</h3>
+    <ul>
+      <li>NPTEL Soft Skill Certification – IIT Kharagpur (2021)</li>
+      <li>Completion of R Training, RDBMS PostgreSQL Training, PHP and MySQL Training – Spoken Tutorial Project at IIT Bombay (2023)</li>
+    </ul>
+  </section>
+
+  <section class="resume-block">
+    <h3>PERSONAL DETAILS</h3>
+    <p><strong>Location:</strong> Hosur</p>
+    <p><strong>Languages:</strong> English, Tamil, German (Entry level)</p>
+    <p><strong>Activities:</strong> Active member of Bharat Scouts and Guides; participated in the 17th National Jamboree.</p>
+  </section>
+</div>
+</div>
+</section>
+
+<!-- ===== CONTACT SECTION  ===== -->
+
+<section id="contact" class="section">
+  <h2>Contact</h2>
+
+  <div class="text-box contact-box">
+    <p class="contact-intro">
+      I’m open to internships, analyst roles, and meaningful collaborations.
+    </p>
+
+    <ul class="contact-list">
+      <li class="copy-item" onclick="copyToClipboard('seshusai2002@gmail.com')">
+        <span class="contact-icon">📧</span>
+        <span class="copy-text">seshusai2002@gmail.com</span>
+      </li>
+
+
+      <li>
+        <span class="contact-icon">💼</span>
+        <a href="https://www.linkedin.com/in/yourprofile" target="_blank">
+          LinkedIn Profile
+        </a>
+      </li>
+
+      <li>
+        <span class="contact-icon">🐙</span>
+        <a href="https://github.com/yourusername" target="_blank">
+          GitHub
+        </a>
+      </li>
+
+      <li>
+        <span class="contact-icon">📄</span>
+        <a href="/resume.pdf" target="_blank">
+          Resume (PDF)
+        </a>
+      </li>
+    </ul>
+
+    <p class="contact-note">
+      I usually respond within 24–48 hours.
+    </p>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+
+<footer>
+  <p>© 2026 Seshu</p>
+</footer>
+
+<script src="script.js"></script>
+
+<!-- Scroll To Top Button -->
+<button id="backToTop" class="back-to-top" title="Go to top">
+  <svg xmlns="http://www.w3.org/2000/svg"
+       viewBox="0 0 24 24"
+       fill="none"
+       stroke="currentColor"
+       stroke-width="2"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       class="scroll-top-svg">
+    <circle cx="12" cy="12" r="10"/>
+    <path d="m8 14 4-4 4 4"/>
+  </svg>
+</button>
+
+<script src="script.js"></script>
+<div class="copy-toast"></div>
+
+</body>
+</html>
