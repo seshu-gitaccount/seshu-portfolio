@@ -814,3 +814,80 @@ body.home .theme-btn {
   opacity: 1;
   transform: translateY(0);
 }
+
+
+/* ========================================
+   RESUME PREVIEW STYLES
+   ======================================== */
+
+.resume-preview-container {
+  background: rgba(0, 0, 0, 0.4); 
+  border: 1px solid rgba(255, 255, 255, 0.3); 
+  border-radius: 12px;
+  overflow: hidden; 
+  margin-top: 20px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.resume-preview-container embed {
+  display: block;
+  border: none;
+}
+
+.resume-btn {
+  background-color: #d9534f; 
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  transition: background 0.3s ease;
+}
+
+.resume-btn:hover {
+  background-color: #c9302c;
+  text-decoration: none;
+}
+
+
+/* Styling for the "Resume Preview" text label */
+.preview-label {
+  margin-top: 40px;      /* Creates space below the download line */
+  margin-bottom: 15px;   /* Creates a small gap above the preview box */
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+
+/* Container for the stacked images */
+.resume-preview-container {
+  background: rgba(0, 0, 0, 0.4); 
+  border: 1px solid rgba(255, 255, 255, 0.2); 
+  border-radius: 12px;
+  padding: 30px; /* Space around the "pages" */
+  max-width: 850px;
+  margin: 20px auto 50px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 25px; /* The gap between page 1, 2, and 3 */
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Individual Page Styling */
+.resume-page-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+  /* Makes it look like a physical sheet of paper */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); 
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
